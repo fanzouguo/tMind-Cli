@@ -1,0 +1,27 @@
+{
+  "name": "tmind",
+  "version": "1.0.0",
+  "description": "This is a cli command tools named tMind for tFrameV9 of smpoo Co.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "tmind": "src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fanzouguo/tMind-Dev.git"
+  },
+  "keywords": [
+    "Smpoo",
+    "tMind",
+    "tFrame"
+  ],
+  "author": "David",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fanzouguo/tMind-Dev/issues"
+  },
+  "homepage": "https://github.com/fanzouguo/tMind-Dev#readme"
+}
