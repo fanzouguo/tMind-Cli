@@ -18,10 +18,19 @@ const getGitCmd = (memo, pkg, branch = 'main') => {
 		`git commit -m "(${getDate()})${memo}"`
 	];
 	if (urlStr) {
-		// `git remote add origin git@github.com:fanzouguo/tMind-cli.git`
-		// urlStr = `${urlStr}`.replace(/^git\+/, '');
-		// _arr.push(`git remote add origin ${urlStr}`);
 		_arr.push(`git push -u origin ${branch}`);
+	}
+	const missPrivateDef = (typeof pkg.private === undefined);
+	const allowPublish = (!missPrivateDef && !pkg.private);
+	if (missPrivateDef) {
+		console.log('项目的 package.json 未指定 private 字段，若需要提交 NPM，请先配置该字段');
+	} else {
+		if (allowPublish) {
+			_arr.push('npm login');
+			_arr.push('npm publish');
+		} else {
+			console.log('项目的 package.json 中 private 字段已申明为： false，该项目不允许发布到 npm.');
+		}
 	}
 	return _arr;
 };
