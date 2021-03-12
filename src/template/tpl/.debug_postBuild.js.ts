@@ -18,12 +18,19 @@ const getDate = () => {
 	return \`\${_y}-\${_m}-\${_d} \${_hh}:\${_mi}:\${_ss}\`;
 };
 
-const getGitCmd = (memo, pkg, branch = 'main') => {
+const getGitCmd = (memo, pkg, tagThis = false, branch = 'main') => {
 	let urlStr = (pkg && pkg.repository && (pkg.repository.url || '')) || '';
-	const _arr = [
-		'git add .',
-		\`git commit -m "(\${getDate()})\${memo}"\`
-	];
+	const _arr = ['git add .'];
+
+	if (tagThis) {
+		_arr.push(\`git tag -a v\${pkg.version} -m "\${memo}"\`);
+	}
+	_arr.push(\`git commit -m "(\${getDate()})\${memo}"\`);
+
+	if (tagThis) {
+		_arr.push('git push origin --tags');
+	}
+
 	if (urlStr) {
 		_arr.push(\`git push -u origin \${branch}\`);
 	}
@@ -44,15 +51,21 @@ const getGitCmd = (memo, pkg, branch = 'main') => {
 };
 
 const execBuild = (async () => {
-	const pkg = fs.readJsonSync('./package.json');
 	const { commitMemo } = await inquirer.prompt({
 		type: 'input',
 		message: '请输入提交备注',
 		name: 'commitMemo',
 	});
-	const _arr = getGitCmd(commitMemo, pkg);
+	const { tagThis } = await inquirer.prompt({
+		type: 'confirm',
+		message: '是否忽略创建 tag 标签',
+		name: 'tagThis'
+	});
+	const _arr = getGitCmd(commitMemo, pkg, !tagThis);
 	for (const v of _arr) {
 		shelljs.exec(v);
+		// console.log(v);
 	}
-})();`
+})();
+`
 }

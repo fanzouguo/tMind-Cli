@@ -20,11 +20,17 @@ const getDate = () => {
 
 const getGitCmd = (memo, pkg, tagThis = false, branch = 'main') => {
 	let urlStr = (pkg && pkg.repository && (pkg.repository.url || '')) || '';
-	const strCommit = !tagThis ? '' : ` tag -a ${pkg.version} `;
-	const _arr = [
-		'git add .',
-		`git ${strCommit}commit -m "(${getDate()})${memo}"`
-	];
+	const _arr = ['git add .'];
+
+	if (tagThis) {
+		_arr.push(`git tag -a v${pkg.version} -m "${memo}"`);
+	}
+	_arr.push(`git commit -m "(${getDate()})${memo}"`);
+
+	if (tagThis) {
+		_arr.push('git push origin --tags');
+	}
+
 	if (urlStr) {
 		_arr.push(`git push -u origin ${branch}`);
 	}
@@ -58,5 +64,6 @@ const execBuild = (async () => {
 	const _arr = getGitCmd(commitMemo, pkg, !tagThis);
 	for (const v of _arr) {
 		shelljs.exec(v);
+		// console.log(v);
 	}
 })();
