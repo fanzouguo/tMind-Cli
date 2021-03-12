@@ -15,12 +15,11 @@ const getGitCmd = (memo, pkg, branch = 'main') => {
 	let urlStr = (pkg && pkg.repository && (pkg.repository.url || '')) || '';
 	const _arr = [
 		'git add .',
-		`git commit -m '(${getDate()})${memo}'`,
-		`git branch -M ${branch}`
+		`git commit -m "(${getDate()})${memo}"`
 	];
 	if (urlStr) {
 		// `git remote add origin git@github.com:fanzouguo/tMind-cli.git`
-		urlStr = `${urlStr}`.replace(/^git\+/, '');
+		// urlStr = `${urlStr}`.replace(/^git\+/, '');
 		// _arr.push(`git remote add origin ${urlStr}`);
 		_arr.push(`git push -u origin ${branch}`);
 	}
@@ -35,6 +34,7 @@ const execBuild = (async () => {
 		name: 'commitMemo',
 	});
 	const _arr = getGitCmd(commitMemo, pkg);
+	// console.log(_arr);
 	for (const v of _arr) {
 		shelljs.exec(v);
 	}
