@@ -1,6 +1,9 @@
 import fs from 'fs-extra';
 import path from 'path';
+import * as debug_index_js from './tpl/.debug_index.js';
 import * as debug_index_ts from './tpl/.debug_index.ts';
+import * as debug_preBuild_js from './tpl/.debug_preBuild.js';
+import * as debug_postBuild_js from './tpl/.debug_postBuild.js';
 import * as editorconfig from './tpl/.editorconfig';
 import * as eslintignore from './tpl/.eslintignore';
 import * as eslintrc_js from './tpl/.eslintrc.js';
@@ -32,7 +35,10 @@ interface ItplTask {
 }
 
 const tplTask: ItplTask[] = [
+	{ fName: '.debug_index.js', getTpl: debug_index_js.getTpl },
 	{ fName: '.debug_index.ts', getTpl: debug_index_ts.getTpl },
+	{ fName: '.debug_preBuild.js', getTpl: debug_preBuild_js.getTpl },
+	{ fName: '.debug_postBuild.js', getTpl: debug_postBuild_js.getTpl },
 	{ fName: '.editorconfig', getTpl: editorconfig.getTpl },
 	{ fName: '.eslintignore', getTpl: eslintignore.getTpl },
 	{ fName: '.eslintrc.js', getTpl: eslintrc_js.getTpl },
