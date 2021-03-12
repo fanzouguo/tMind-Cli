@@ -33,6 +33,4 @@ class Tmind {
 	}
 }
 
-export {
-	Tmind
-};
+new Tmind();
