@@ -61,7 +61,9 @@ const execBuild = (async () => {
 		if (allowPublish) {
 			// _arr.push('npm login');
 			// _arr.push('npm publish');
-			console.log('请输入 npm publish 开始发布');
+			shelljs.exec('npm publish');
+			// console.log('请输入 npm publish 开始发布');
+			console.log('项目已同时发布/更新到 www.npmjs.com');
 		} else {
 			console.log('项目的 package.json 中 private 字段已申明为： false，该项目不允许发布到 npm.');
 		}
