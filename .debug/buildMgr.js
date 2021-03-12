@@ -26,7 +26,7 @@ const getGitCmd = (memo, pkg, branch = 'main') => {
 		console.log('项目的 package.json 未指定 private 字段，若需要提交 NPM，请先配置该字段');
 	} else {
 		if (allowPublish) {
-			_arr.push('npm login');
+			// _arr.push('npm login');
 			_arr.push('npm publish');
 		} else {
 			console.log('项目的 package.json 中 private 字段已申明为： false，该项目不允许发布到 npm.');
