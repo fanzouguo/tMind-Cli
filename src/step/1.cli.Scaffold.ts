@@ -29,8 +29,10 @@ export const initProject = async (cliConf: ICliConf): Promise<ICliConf> => {
 			shelljs.cd(currPjName);
 			shelljs.exec('git init');
 			shelljs.exec('git add .');
-			shelljs.exec(`git commit -m '${getFromat('yyyy-mm-dd hh:mi:ss')}初始化建库'`);
+			shelljs.exec(`git commit -m "${getFromat('yyyy-mm-dd hh:mi:ss')} create repo."`);
 			shelljs.exec('git branch -M main');
+			shelljs.exec(`git remote add origin git@github.com:fanzouguo/${currPjName}.git`);
+			shelljs.exec('git push origin main');
 			return cliConf;
 		} else {
 			console.log(`当前路径下的：${currPjName} 文件夹已被其他项目占用，请更换路径后重试。`);

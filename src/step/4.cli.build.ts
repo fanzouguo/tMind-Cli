@@ -16,14 +16,13 @@ const getAnswer = async (question: IObjQuestion): Promise<string> => {
 export const runBuild = async (cliConf: ICliConf, questionMemo: IObjQuestion, questionBranch: IObjQuestion): Promise<string> => {
 	const commitMemo = await getAnswer(questionMemo);
 	if (commitMemo) {
-		const commitBranch = await getAnswer(questionBranch) || 'main';
+		// const commitBranch = await getAnswer(questionBranch) || 'main';
 		const pkg = fs.readJsonSync(getPathSpec(getCurrPath(), 'package.json'));
 		cliConf.URL_TO_GITHUB = ((pkg && pkg.repository) && pkg.repository.url) || '';
 		const cmd = [
 			'yarn build',
 			'git add .',
-			`git commit -m '(${getFromat()})${commitMemo}'`,
-			`git branch -M ${commitBranch}`
+			`git commit -m "(${getFromat()})${commitMemo}"`
 		];
 		if (cliConf.URL_TO_GITHUB) {
 			// cmd.push(`git remote add origin ${pkg}`);
