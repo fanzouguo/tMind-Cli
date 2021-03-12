@@ -34,19 +34,6 @@ const getGitCmd = (memo, pkg, tagThis = false, branch = 'main') => {
 	if (urlStr) {
 		_arr.push(`git push -u origin ${branch}`);
 	}
-	const missPrivateDef = (typeof pkg.private === undefined);
-	const allowPublish = (!missPrivateDef && !pkg.private);
-	if (missPrivateDef) {
-		console.log('项目的 package.json 未指定 private 字段，若需要提交 NPM，请先配置该字段');
-	} else {
-		if (allowPublish) {
-			// _arr.push('npm login');
-			// _arr.push('npm publish');
-			console.log('请输入 npm publish 开始发布');
-		} else {
-			console.log('项目的 package.json 中 private 字段已申明为： false，该项目不允许发布到 npm.');
-		}
-	}
 	return _arr;
 };
 
@@ -65,5 +52,18 @@ const execBuild = (async () => {
 	for (const v of _arr) {
 		shelljs.exec(v);
 		// console.log(v);
+	}
+	const missPrivateDef = (typeof pkg.private === undefined);
+	const allowPublish = (!missPrivateDef && !pkg.private);
+	if (missPrivateDef) {
+		console.log('项目的 package.json 未指定 private 字段，若需要提交 NPM，请先配置该字段');
+	} else {
+		if (allowPublish) {
+			// _arr.push('npm login');
+			// _arr.push('npm publish');
+			console.log('请输入 npm publish 开始发布');
+		} else {
+			console.log('项目的 package.json 中 private 字段已申明为： false，该项目不允许发布到 npm.');
+		}
 	}
 })();
