@@ -27,7 +27,8 @@ const getGitCmd = (memo, pkg, branch = 'main') => {
 	} else {
 		if (allowPublish) {
 			// _arr.push('npm login');
-			_arr.push('npm publish');
+			// _arr.push('npm publish');
+			console.log('请输入 npm publish 开始发布');
 		} else {
 			console.log('项目的 package.json 中 private 字段已申明为： false，该项目不允许发布到 npm.');
 		}
@@ -43,7 +44,6 @@ const execBuild = (async () => {
 		name: 'commitMemo',
 	});
 	const _arr = getGitCmd(commitMemo, pkg);
-	// console.log(_arr);
 	for (const v of _arr) {
 		shelljs.exec(v);
 	}
