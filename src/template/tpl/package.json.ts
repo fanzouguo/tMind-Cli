@@ -17,6 +17,7 @@ const scriptBend = `"scripts": {
 	"dev": "ts-node --files ./.debug/index.ts",
 	"dev:pre": "yarn lint && tsc -p ./.debug && node ./.debug/index.js",
 	"build": "yarn lint && yarn clean && cross-env NODE_ENV=prod yarn tsc --build ./tscconfig.build.json",
+	"prebuild": "node ./.debug/preBuild.js",
 	"postbuild": "node ./.debug/postBuild.js",
 	"lint": "eslint src --ext .ts"
 },`;
@@ -26,6 +27,7 @@ const scriptLib = `"scripts": {
 		"dev": "ts-node --files ./.debug/index.ts",
     "dev:pre": "yarn lint && tsc -p ./.debug && node ./.debug/index.js",
 		"build": "yarn lint && yarn clean && cross-env NODE_ENV=prod yarn tsc --build ./tscconfig.build.json",
+    "prebuild": "node ./.debug/preBuild.js",
     "postbuild": "node ./.debug/postbuild.js",
     "lint": "eslint src --ext .ts"
 	},`;
