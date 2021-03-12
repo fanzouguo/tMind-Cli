@@ -10,7 +10,8 @@
     "dev": "ts-node --files ./.debug/index.ts",
     "dev:pre": "yarn lint && tsc -p ./.debug && node ./.debug/index.js",
     "build": "yarn lint && yarn clean && yarn ts2js && cross-env NODE_ENV=prod",
-    "postbuild": "node ./.debug/buildMgr.js",
+    "pretbuild": "node ./.debug/preBuild.js",
+    "postbuild": "node ./.debug/postBuild.js",
     "type-check": "tsc --watch",
     "lint": "eslint src --ext .ts"
   },

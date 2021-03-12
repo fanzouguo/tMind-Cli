@@ -1,24 +1,31 @@
-const shelljs = require('shelljs');
+export const getTpl = (cliConf: any): string => {
+	return `const shelljs = require('shelljs');
 const inquirer = require('inquirer');
 const fs = require('fs-extra');
 
 const frm = (str, len = 2) => {
-	return `${str}`.padStart(len, '0');
+	return \`\${str}\`.padStart(len, '0');
 };
 
 const getDate = () => {
 	const _dt = new Date();
-	return `${_dt.getFullYear()}-${frm(_dt.getMonth() + 1)}-${frm(_dt.getDate())} ${frm(_dt.getHours())}:${frm(_dt.getMinutes())}:${frm(_dt.getSeconds())}`;
+	const _y = _dt.getFullYear();
+	const _m = frm(_dt.getMonth() + 1);
+	const _d = frm(_dt.getDate());
+	const _hh = frm(_dt.getHours());
+	const _mi = frm(_dt.getMinutes());
+	const _ss = frm(_dt.getSeconds());
+	return \`\${_y}-\${_m}-\${_d} \${_hh}:\${_mi}:\${_ss}\`;
 };
 
 const getGitCmd = (memo, pkg, branch = 'main') => {
 	let urlStr = (pkg && pkg.repository && (pkg.repository.url || '')) || '';
 	const _arr = [
 		'git add .',
-		`git commit -m "(${getDate()})${memo}"`
+		\`git commit -m "(\${getDate()})\${memo}"\`
 	];
 	if (urlStr) {
-		_arr.push(`git push -u origin ${branch}`);
+		_arr.push(\`git push -u origin \${branch}\`);
 	}
 	const missPrivateDef = (typeof pkg.private === undefined);
 	const allowPublish = (!missPrivateDef && !pkg.private);
@@ -47,4 +54,5 @@ const execBuild = (async () => {
 	for (const v of _arr) {
 		shelljs.exec(v);
 	}
-})();
+})();`
+}
