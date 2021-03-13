@@ -1,6 +1,6 @@
 {
   "name": "tmind-cli",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "This is a cli command tools named tMind for tFrameV9 of smpoo Co.",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -46,5 +46,5 @@
     "webpack": "4.46.0",
     "webpack-cli": "^4.5.0"
   },
-  "lastBuild": "2021-03-13 06:17:26.802"
+  "lastBuild": "2021-03-13 17:51:18.733"
 }

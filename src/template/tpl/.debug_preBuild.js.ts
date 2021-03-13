@@ -4,6 +4,7 @@ const fs = require('fs-extra');
 const path = require('path');
 const pkg = fs.readJsonSync('./package.json');
 
+/* eslint-disable no-unused-vars */
 const resetVer = (async () => {
 	const getDate = () => {
 		const frm = (str, len = 2) => {
@@ -54,6 +55,7 @@ const resetVer = (async () => {
 	pkg.version = _arr.join('.');
 	pkg.lastBuild = getDate();
 	fs.writeFileSync(path.resolve(process.cwd(), 'package.json'), JSON.stringify(pkg, null, 2));
+	/* eslint-disable no-console */
 	console.clear();
 	console.log(\`本次构建版本号为：\${pkg.version}\`);
 })();
