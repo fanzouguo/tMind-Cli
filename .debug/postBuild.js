@@ -45,10 +45,12 @@ const execBuild = (async () => {
 	});
 	const { tagThis } = await inquirer.prompt({
 		type: 'confirm',
-		message: '是否忽略创建 tag 标签',
-		name: 'tagThis'
+		// message: '是否忽略创建 tag 标签',
+		message: '是否依据该版本号创建 tag 标签',
+		name: 'tagThis',
+		default: false
 	});
-	const _arr = getGitCmd(commitMemo, pkg, !tagThis);
+	const _arr = getGitCmd(commitMemo, pkg, tagThis);
 	for (const v of _arr) {
 		shelljs.exec(v);
 		// console.log(v);
