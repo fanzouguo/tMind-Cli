@@ -61,9 +61,9 @@ const execBuild = (async () => {
 		console.log('项目的 package.json 未指定 private 字段，若需要提交 NPM，请先配置该字段');
 	} else {
 		if (allowPublish) {
-			// _arr.push('npm login');
-			// _arr.push('npm publish');
-			shelljs.exec('npm publish');
+			// _arr.push('yarn login');
+			// _arr.push('yarn publish');
+			shelljs.exec('yarn publish');
 			// console.log('请输入 npm publish 开始发布');
 			// console.log('项目已同时发布/更新到 www.npmjs.com');
 		} else {
