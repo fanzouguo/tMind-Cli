@@ -1,1 +1,2 @@
-# tMind-Cli
+# fastCli
+Fast create pkg project.

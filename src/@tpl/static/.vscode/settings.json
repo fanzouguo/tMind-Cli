@@ -1,0 +1,14 @@
+{
+	"javascript.suggest.autoImports": false,
+	"js/ts.implicitProjectConfig.experimentalDecorators": true,
+	"typescript.suggest.autoImports": false,
+	"vetur.completion.autoImport": false,
+	"prettier.singleQuote": true,
+	"eslint.validate": [
+		"javascript",
+		"vue",
+		"html",
+		"typescript"
+	],
+  "typescript.tsdk": "%YARN_Typescript_Lib%"
+}

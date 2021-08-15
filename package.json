@@ -1,50 +1,30 @@
 {
-  "name": "tmind-cli",
-  "version": "1.0.15",
-  "description": "This is a cli command tools named tMind for tFrameV9 of smpoo Co.",
-  "main": "lib/index.js",
-  "typings": "lib/index.d.ts",
-  "scripts": {
-    "clean": "shx rm -rf .debug/lib .debug/dist lib",
-    "ts2js": "tsc",
-    "dev": "ts-node --files ./.debug/index.ts",
-    "dev:pre": "yarn lint && tsc -p ./.debug && node ./.debug/index.js",
-    "build": "yarn lint && yarn clean && yarn ts2js && cross-env NODE_ENV=prod",
-    "prebuild": "node ./.debug/preBuild.js",
-    "postbuild": "node ./.debug/postBuild.js",
-    "type-check": "tsc --watch",
-    "lint": "eslint src --ext .ts"
-  },
+  "name": "tmind-pkg",
+  "version": "2.0.29",
+  "description": "Fast create pkg project.",
+  "main": "src/index.js",
+  "type": "commonjs",
+  "private": true,
   "bin": {
-    "tmind": "lib/index.js"
+    "tmind": "src/index.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/fanzouguo/tMind-Cli.git"
+  "scripts": {
+    "dev": "node ./src/index.js",
+    "build": "cross-env NODE_ENV=prod && node ./.dev/index.js"
   },
-  "keywords": [
-    "Smpoo",
-    "tMind",
-    "tFrame"
-  ],
-  "author": "David",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/fanzouguo/tMind-Cli/issues"
-  },
-  "homepage": "https://github.com/fanzouguo/tMind-Cli#readme",
+  "author": "上海深普软件.Co.David",
+  "license": "ISC",
+  "lastBuild": "2021-08-13 08:28:54.861",
   "dependencies": {
+    "fs-extra": "^9.1.0",
+    "glob-all": "^3.2.1",
     "inquirer": "^8.0.0",
+    "ncp": "^2.0.0",
     "shelljs": "^0.8.4",
     "shx": "^0.3.3",
-    "yargs": "^16.2.0"
+    "tmind-core": "^2.3.22"
   },
   "devDependencies": {
-    "cross-env": "^7.0.3",
-    "eslint": "^7.21.0",
-    "ts-loader": "^8.0.17",
-    "webpack": "4.46.0",
-    "webpack-cli": "^4.5.0"
-  },
-  "lastBuild": "2021-03-13 20:31:30.772"
+    "tmind-builder": "^1.0.14"
+  }
 }

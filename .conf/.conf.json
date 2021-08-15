@@ -1,8 +1,0 @@
-{
-	"defaultSysName": "上海深普软件 - 开发预览服务",
-	"globalStaticPath": "example",
-	"distPath": "example",
-	"addr": "localhost",
-	"portDev": 1978,
-	"portDevHttps": 1979
-}

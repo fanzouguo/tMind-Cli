@@ -5,14 +5,22 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
-			"type": "node",
-			"request": "launch",
-			"name": "Launch Program",
-			"program": "${workspaceFolder}/.debug/index.js",
-			// "program": "${workspaceFolder}/lib/nodeCmd/dev.Svr.js",
+			"name": "Attach模式_先yarn dev:debug",
+			"processId": "${command:PickProcess}",
+			"request": "attach",
 			"skipFiles": [
 				"<node_internals>/**"
-			]
+			],
+			"type": "pwa-node"
+		},
+		{
+			"type": "pwa-node",
+			"request": "launch",
+			"name": "Launch Program",
+			"skipFiles": [
+				"<node_internals>/**"
+			],
+			"program": "${workspaceFolder}/src/index.js"
 		}
 	]
 }
