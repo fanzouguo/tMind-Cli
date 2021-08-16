@@ -1,20 +1,31 @@
 {
   "name": "tmind-pkg",
-  "version": "2.0.29",
+  "version": "2.0.30",
   "description": "Fast create pkg project.",
   "main": "src/index.js",
-  "type": "commonjs",
   "private": true,
-  "bin": {
-    "tmind": "src/index.js"
-  },
   "scripts": {
     "dev": "node ./src/index.js",
     "build": "cross-env NODE_ENV=prod && node ./.dev/index.js"
   },
+  "bin": {
+    "tmind": "src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fanzouguo/tMind-Cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fanzouguo/tMind-Cli/issues"
+  },
+  "homepage": "https://github.com/fanzouguo/tMind-Cli#readme",
+  "keywords": [
+    "Smpoo",
+    "tMind",
+    "tFrame"
+  ],
   "author": "上海深普软件.Co.David",
   "license": "ISC",
-  "lastBuild": "2021-08-13 08:28:54.861",
   "dependencies": {
     "fs-extra": "^9.1.0",
     "glob-all": "^3.2.1",
@@ -26,5 +37,6 @@
   },
   "devDependencies": {
     "tmind-builder": "^1.0.14"
-  }
+  },
+  "lastBuild": "2021-08-13 08:28:54.861"
 }
