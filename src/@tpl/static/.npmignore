@@ -3,7 +3,7 @@
 .browserslistrc
 .editorconfig
 .eslintignore
-.eslintrc.js
+.eslintrc.js*
 .gitignore
 .npmignore
 .prettierrc.js

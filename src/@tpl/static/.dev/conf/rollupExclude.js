@@ -3,8 +3,5 @@
  */
 
 module.exports = [
-	'node-json-db',
-	'tmind-core',
-	'tmind-svr',
-	'ws'
+	'tmind-core'
 ];

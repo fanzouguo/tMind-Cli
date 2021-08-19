@@ -1,9 +1,9 @@
 {
   "name": "tmind-pkg",
-  "version": "2.0.30",
+  "version": "3.0.0",
   "description": "Fast create pkg project.",
   "main": "src/index.js",
-  "private": true,
+  "private": false,
   "scripts": {
     "dev": "node ./src/index.js",
     "build": "cross-env NODE_ENV=prod && node ./.dev/index.js"
@@ -33,7 +33,7 @@
     "ncp": "^2.0.0",
     "shelljs": "^0.8.4",
     "shx": "^0.3.3",
-    "tmind-core": "^2.3.22"
+    "tmind-core": "^3.3.28"
   },
   "devDependencies": {
     "tmind-builder": "^1.0.14"
