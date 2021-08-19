@@ -1,10 +1,13 @@
 {
   "name": "tMind-Cli",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "description": ".",
   "private": false,
   "main": "lib/index.js",
   "type": "commonjs",
+  "bin": {
+    "tmind": "src/index.js"
+  },
   "scripts": {
     "dev": "node ./.dev/dev.js",
     "build": "cross-env NODE_ENV=prod && node ./.dev/index.js"
