@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const { tClear, tEcho } = require('tmind-core');
 const PathMgr = require('./util/PathMgr');
 const preEnv = require('./util/preEnv');
@@ -107,6 +108,6 @@ const start = async (restartMsg = '', msgTile = '') => {
 	} catch (err) {
 		tEcho(err, '异常', 'ERR');
 	}
-}
+};
 
 start();
