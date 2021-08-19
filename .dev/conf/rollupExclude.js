@@ -3,11 +3,5 @@
  */
 
 module.exports = [
-	"fs-extra",
-	"glob-all",
-	"inquirer",
-	"ncp",
-	"shelljs",
-	"shx",
-	'tmind-core',
+	'tmind-core'
 ];

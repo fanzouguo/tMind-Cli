@@ -3,5 +3,5 @@
  */
 module.exports = [
 	'tmind-core',
-	'tmind-builder'
+	'tmind-svr'
 ];

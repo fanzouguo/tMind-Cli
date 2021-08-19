@@ -1,42 +1,84 @@
 {
-  "name": "tmind-pkg",
-  "version": "0.0.2",
-  "description": "Fast create pkg project.",
-  "main": "src/index.js",
+  "name": "tMind-Cli",
+  "version": "2.0.0",
+  "description": ".",
   "private": false,
+  "main": "lib/index.js",
+  "type": "commonjs",
   "scripts": {
-    "dev": "node ./src/index.js",
+    "dev": "node ./.dev/dev.js",
     "build": "cross-env NODE_ENV=prod && node ./.dev/index.js"
   },
-  "bin": {
-    "tmind": "src/index.js"
+  "author": "fanzouguo",
+  "license": "MIT",
+  "keywords": [
+    "smpoo",
+    "tframe",
+    "tFrame",
+    "smpoo soft",
+    "深普",
+    "上海深普",
+    "上海深普软件",
+    "tMindCli",
+    "tMind-Cli",
+    "tMind-Cli"
+  ],
+  "homepage": "https://github.com/fanzouguo/tMind-Cli#readme",
+  "dependencies": {
+    "tmind-core": "^3.3.28",
+    "iconv-lite": "^0.6.3",
+    "tmind-svr": "^6.0.0"
   },
+  "devDependencies": {
+    "@babel/cli": "^7.13.0",
+    "@babel/core": "^7.14.6",
+    "@types/jest": "^26.0.22",
+    "@babel/plugin-external-helpers": "^7.12.13",
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/plugin-transform-modules-commonjs": "^7.14.5",
+    "@babel/plugin-transform-runtime": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/preset-typescript": "^7.13.0",
+    "@babel/register": "^7.14.5",
+    "@babel/runtime": "^7.14.6",
+    "@babel/runtime-corejs2": "^7.13.9",
+    "@typescript-eslint/eslint-plugin": "^4.17.0",
+    "@typescript-eslint/parser": "^4.17.0",
+    "@types/ws": "^7.4.0",
+    "babel-eslint": "^10.1.0",
+    "cross-env": "^7.0.3",
+    "cssnano": "^5.0.7",
+    "eslint": "~6.8.0",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-if": "^3.0.0",
+    "gulp-notify": "^4.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-size": "^4.0.1",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-uglify": "^3.0.2",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "nodemon": "^2.0.7",
+    "rollup": "^2.56.2",
+    "shx": "^0.3.3",
+    "terser": "^5.7.1",
+    "ts-node": "^9.1.1",
+    "tsconfig-paths": "^3.10.1",
+    "typescript": "~4.2.2"
+  },
+  "createAt": "2021-08-19 14:32:48.577",
+  "lastBuild": "2021-08-19 14:32:48.577",
+  "types": "lib/types/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fanzouguo/tMind-Cli.git"
+    "url": "git@github.com:fanzouguo/tMind-Cli.git"
   },
   "bugs": {
     "url": "https://github.com/fanzouguo/tMind-Cli/issues"
-  },
-  "homepage": "https://github.com/fanzouguo/tMind-Cli#readme",
-  "keywords": [
-    "Smpoo",
-    "tMind",
-    "tFrame"
-  ],
-  "author": "上海深普软件.Co.David",
-  "license": "ISC",
-  "dependencies": {
-    "fs-extra": "^9.1.0",
-    "glob-all": "^3.2.1",
-    "inquirer": "^8.0.0",
-    "ncp": "^2.0.0",
-    "shelljs": "^0.8.4",
-    "shx": "^0.3.3",
-    "tmind-core": "^3.3.28"
-  },
-  "devDependencies": {
-    "tmind-builder": "^9.0.0"
-  },
-  "lastBuild": "2021-08-13 08:28:54.861"
+  }
 }
