@@ -2,5 +2,6 @@
  *
  */
 module.exports = [
-	'tmind-core'
+	'tmind-core',
+	'tmind-builder'
 ];

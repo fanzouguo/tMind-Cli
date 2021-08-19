@@ -1,6 +1,6 @@
 {
   "name": "tmind-pkg",
-  "version": "3.0.0",
+  "version": "0.0.1",
   "description": "Fast create pkg project.",
   "main": "src/index.js",
   "private": false,
@@ -36,7 +36,7 @@
     "tmind-core": "^3.3.28"
   },
   "devDependencies": {
-    "tmind-builder": "^1.0.14"
+    "tmind-builder": "^9.0.0"
   },
   "lastBuild": "2021-08-13 08:28:54.861"
 }
